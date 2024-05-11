@@ -8,7 +8,7 @@ export const getGoogleAuthEndpoint = (): string => {
     import.meta.env.VITE_GOOGLE_AUTH_BASEURL ?? "https://hoge.com";
   const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID ?? "hoge";
   const redirectUrl =
-    import.meta.env.VITE_REDIRECT_URL ?? "http://localhost:3000";
+    import.meta.env.VITE_REDIRECT_URL ?? "http://localhost:3000/login";
 
   const scope = encodeURIComponent("openid email profile phone");
   const accessType = "offline";

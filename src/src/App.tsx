@@ -1,27 +1,14 @@
-//import Axios from "axios";
-import { Box, Button, Typography } from "@mui/material";
-import { getGoogleAuthEndpoint } from "./utils/google";
-
-const logoUri = "vite.svg"; // publicがroot扱いとなる
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Login } from "./components/Login";
+import { Main } from "./components/Main";
 
 export const App = () => {
-  const onClickGoogleLogin = () => {
-    window.open(getGoogleAuthEndpoint(), "_self");
-  };
-
   return (
-    <Box
-      sx={{ width: "100%", padding: "8px" }}
-      display="flex"
-      flexDirection="column"
-    >
-      <Typography sx={{ width: "100%", textAlign: "center" }}>
-        IMAGE STORE
-      </Typography>
-      <img src={logoUri} alt={"logo"} />
-
-      {/* ログイン */}
-      <Button onClick={onClickGoogleLogin}>Googleでログインする</Button>
-    </Box>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
